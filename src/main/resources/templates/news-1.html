@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Male_Fashion Template">
+<meta name="keywords" content="Male_Fashion, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Male-Fashion</title>
+<link rel="icon" href="/img/logo-3.png">
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+	rel="stylesheet">
+
+<!-- Css Styles -->
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+<link rel="stylesheet" href="css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Offcanvas Menu Begin -->
+	<div class="offcanvas-menu-overlay"></div>
+	<div class="offcanvas-menu-wrapper">
+		<div class="offcanvas__option">
+			<div class="offcanvas__links">
+				<a th:if="${session.acc == null}" th:href="@{/signin}">Sign in</a> <a
+					th:if="${session.acc != null}" th:text="${session.acc.user_Name}"
+					style="color: white;"></a> <a th:if="${session.acc != null}"
+					th:href="@{/signout}">Sign out</a><a href="#">FAQs</a>
+			</div>
+			<div class="offcanvas__top__hover">
+				<span>VND<i class="arrow_carrot-down"></i></span>
+				<ul>
+					<li>VND</li>
+					<li>EUR</li>
+					<li>USD</li>
+				</ul>
+			</div>
+		</div>
+		<div class="offcanvas__nav__option">
+			<a href="#" class="search-switch"><img src="img/icon/search.png"
+				alt=""></a> <a href="#"><img src="img/icon/heart.png" alt=""></a>
+			<a th:href="@{/cart}"><img src="img/icon/cart.png" alt="">
+				<span th:text="${session.countCart}"></span></a>
+		</div>
+		<div id="mobile-menu-wrap"></div>
+		<div class="offcanvas__text">
+			<p>Free shipping, 30-day return or refund guarantee.</p>
+		</div>
+	</div>
+	<!-- Offcanvas Menu End -->
+
+	<!-- Header Section Begin -->
+	<header class="header">
+		<div class="header__top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-7">
+						<div class="header__top__left">
+							<p>Free shipping, 30-day return or refund guarantee.</p>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-5">
+						<div class="header__top__right">
+							<div class="header__top__links">
+								<a th:if="${session.acc == null}" th:href="@{/signin}">Sign
+									in</a> <a th:if="${session.acc != null}"
+									th:text="${session.acc.user_Name}" style="color: white;"></a> <a
+									th:if="${session.acc != null}" th:href="@{/signout}">Sign
+									out</a><a href="#">FAQs</a>
+							</div>
+							<div class="header__top__hover">
+								<span>VND<i class="arrow_carrot-down"></i></span>
+								<ul>
+									<li>VND</li>
+									<li>EUR</li>
+									<li>USD</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-3">
+					<div class="header__logo" style="margin-top: -20px;">
+						<a th:href="@{/home}"><img src="img/logo1.png" alt=""></a>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<nav class="header__menu mobile-menu">
+						<ul>
+							<li><a th:href="@{/home}">Home</a></li>
+							<li><a th:href="@{/shop}">Shop</a></li>
+							<li class="active"><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                	<li><a th:href="@{/cart}">Shopping Cart</a></li>
+                                	<li><a th:href="@{/myprofile}">My Profile</a></li>
+                                	<li><a th:href="@{/myhistory}">My History</a></li>
+                                    <li><a th:href="@{/about}">About Us</a></li>
+                                </ul>
+                            </li>
+							<li><a th:href="@{/blog}">Blog</a></li>
+							<li><a th:href="@{/contact}">Contacts</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-lg-3 col-md-3">
+					<div class="header__nav__option">
+						<a href="#" class="search-switch"><img
+							src="img/icon/search.png" alt=""></a> <a href="#"><img
+							src="img/icon/heart.png" alt=""></a> <a th:href="@{/cart}"><img
+							src="img/icon/cart.png" alt=""> <span
+							th:text="${session.countCart}"></span></a>
+					</div>
+				</div>
+			</div>
+			<div class="canvas__open">
+				<i class="fa fa-bars"></i>
+			</div>
+		</div>
+	</header>
+	<!-- Header Section End -->
+
+	<!-- Breadcrumb Section Begin -->
+	<section class="breadcrumb-option">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="breadcrumb__text">
+						<div class="breadcrumb__links">
+							<a th:href="@{/home}">Home</a> <span>News</span> <span> > Cách chọn áo khoác da nam cực chuẩn với 3 tip đơn giản</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Breadcrumb Section End -->
+
+	<!-- About Section Begin -->
+	<div style="padding-left: 170px;">
+		<h2>Cách chọn áo khoác da nam cực chuẩn với 3 tip đơn giản</h2>
+		<p>18/12/2023</p>
+	</div>
+	
+	<section class="about spad">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-lg-12">
+					
+					<div class="about__pic">
+						<img src="img/new/new1.jpg" alt="">
+					</div>
+				</div>
+			</div>
+			
+			<p style="font-size: 16px;">Trong tủ quần áo của phái mạnh, ít nhất phải có một cái áo khoác da, món đồ thần thánh thể hiện sự nam tính, phong độ của bạn. Đối với quý ông đã đam mê áo khoác da thì việc tìm được chiếc áo da mình yêu thích và phù hợp với mình không phải là dễ. Mỗi người đều có dáng người riêng, phong cách riêng nên áo khoác da phù hợp sẽ thể hiện thần thái của bạn. Thật sự, việc lựa chọn không khó, rất đơn giản chỉ cần bạn biết được 3 bí kiếp sắp chia sẽ với cánh mày râu sau đây</p>
+			<img style="margin: auto;padding-top: 20px;padding-left: 165px;" src="img/new/new2.jpg" alt="">	
+			<br>
+			<br>		
+			<div class="row">
+				<h3>
+					Áo khoác da Bomber jacket
+				</h3>
+				<br>
+				<br>
+				<p style="font-size: 16px;">
+					Bomber jacket là loại áo khoác hơi phồng thân, có đường chun bo ở gấu áo và cổ tay, thích hợp cho những chàng trai gầy có đôi vai rộng. 
+					Đây là kiểu trang phục không bao giờ lỗi mốt, mang đến vẻ trẻ trung, khỏe khoắn, năng động cho cánh mày râu.
+					Các chàng có thể kết hợp Bomber jacket với áo len, áo thun hay thậm chí với cả sơ mi cùng cà vạt lịch lãm. 
+					Đây là món phụ kiện đa năng dành cho quý ông, có thể phù hợp với mọi hoàn cảnh khác nhau, một sự lựa chọn mà cánh mày râu nên có trong tủ đồ. 
+					Đối với mẫu áo khoác da này, các chàng trai thường lựa chọn màu sắc áo khoác “an toàn” như đen, ghi, vàng đất..., 
+					nhưng nếu muốn trở nên nổi bật hơn thì đừng ngại khoác lên mình chiếc áo chất liệu vải bắt sáng với gam màu bắt mắt để ghi dấu ấn phong cách.
+				</p>
+				<img style="margin: auto;padding-top: 20px;" src="img/new/new3.jpg" alt="">
+			</div>
+			<br>
+			<i style="display: flex;justify-content: center;">Áo khoác da nam Bomber jacket</i>
+			
+			<div class="row">
+				<h3>
+					Áo khoác da Motorcycle jacket
+				</h3>
+				<br>
+				<br>
+				<p style="font-size: 16px;">
+					Nếu như bạn là người đam mê tốc độ, đam mê khám phá cuộc sống trên những chiếc mô tô cùng với phong cách phong trần, 
+					cá tinh thì kiểu áo da Motorcycle jacket là sự lựa chọn hoàn hảo dành cho bạn. Không chỉ là những chiếc áo khoác da đơn thuần, 
+					Motocycle jacket rất chú trọng vào những điểm nhấn như thắt lưng ngang hông hay khóa kéo được thiết kế nhiều hơn ở cổ tay, thân áo và túi quần, 
+					tạo nên sự hòa hợp tinh tế giữa các bộ phận trên áo với nhau.
+				</p>
+				<img style="margin: auto;padding-top: 20px;" src="img/new/new4.jpg" alt="">
+			</div>
+			<br>
+			<i style="display: flex;justify-content: center;">Áo khoác da nam motorcycle jacket</i>
+			
+			<div class="row">
+				<h3>
+					Áo khoác da Distressed leather jacket
+				</h3>
+				<br>
+				<br>
+				<p style="font-size: 16px;">
+					Kiểu áo khoác da Distressed leather jacket phong cách cổ điển mang đến cho người mặc cảm giác xưa cũ với ve áo cứng, túi hình hộp. 
+					Kiểu áo khoác này chỉ dài đến thắt lưng người mặc, đơn giản, gọn nhẹ.
+				</p>
+				<img style="margin: auto;padding-top: 20px;" src="img/new/new5.jpg" alt="">
+			</div>
+			<br>
+			<i style="display: flex;justify-content: center;">Áo khoác Distressed leather jacket</i>
+			
+			<div class="row">
+				<h3>
+					Đừng quên kiểm tra chất lượng áo
+				</h3>
+				<br>
+				<br>
+				<p style="font-size: 16px;">
+					Chọn size áo da tưởng chừng đơn giản nhưng nếu không có kinh nghiệm chúng ta phải chịu tốn nhiều chi phí và mua được sản phẩm không vừa ý. Không có một cửa hàng nào nói size áo da của mình là chuẩn (chuẩn này là chuẩn châu á, chuẩn châu âu), ví dụ như trong Châu Á nhưng giữa người Việt và người Hàn cũng đã có chiều cao trung bình khác nhau
+					Vì vậy size áo da chuẩn chỉ tương đối trong một quốc gia, dựa trên một dân tộc chiếm đa số. Để giúp khách hàng mua được sản phẩm vừa ý, Karan đưa ra bảng size dựa trên kinh nghiệm tư vấn và ý kiến của khách hàng đã sử dụng sản phẩm. 
+				</p>
+				<img style="margin: auto;padding-top: 20px;" src="img/new/new6.jpg" alt="">
+			</div>
+			<br>
+			<i style="display: flex;justify-content: center;">bảng size áo khoác da pu tại KARAN VIỆT NAM</i>
+			
+			<div class="row">
+				<h3>
+					Cách chọn size áo khoác da
+				</h3>
+				<br>
+				<br>
+				<p style="font-size: 16px;">
+					Giá cả khác nhau thì chất lượng da cũng sẽ khác nhau nhưng mua đúng áo khoác da tương xứng với giá trị bỏ ra thì bạn kiểm tra thật kĩ lưỡng trước khi mua. Bạn phải kiểm tra các yếu tố sau để không mua nhầm:
+				</p>
+				<p style="font-size: 16px;">
+					Tuy nhiên, việc lựa chọn được một áo khoác da thật có giá khá cao, nếu bạn là một người đam mê áo khoác da tốt mà giá cả phù hợp thì áo khoác giả da (áo khoác da pu, simili) là một lựa chọn không tồi. KARAN VIỆT NAM chuyên về áo khoác da dành cho nam giới với chất lượng, có thể sử dụng lên đến 4 năm nhưng giá cả phù hợp với túi tiền, đặc biệt là các bạn sinh viên có đam mê với áo khoác da thần thánh.
+					Bạn đã nắm được bí kiếp thần thánh về cách chọn áo khoác da nam này chưa ? Những tips trên sẽ giúp cho bạn tìm được chiếc áo khoác da ưng ý với mình. Còn rất nhiều chia sẽ hay dành cho tín đồ áo khoác da, hãy đồng hành cùng KARAN VIỆT NAM để sưu tầm kiến thức hay cho gu thời trang của bạn.
+				</p>			
+			</div>
+			<br>			
+		</div>
+		
+	</section>
+<!-- About Section End -->
+
+
+	
+	<!-- Footer Section Begin -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="footer__about">
+						<div class="footer__logo">
+							<a href="#"><img src="img/footer-logo.png" alt=""></a>
+						</div>
+						<p>The customer is at the heart of our unique business model,
+							which includes design.</p>
+						<a href="#"><img src="img/payment.png" alt=""></a>
+					</div>
+				</div>
+				<div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+					<div class="footer__widget">
+						<h6>Shopping</h6>
+						<ul>
+							<li><a href="#">Clothing Store</a></li>
+							<li><a href="#">Trending Shoes</a></li>
+							<li><a href="#">Accessories</a></li>
+							<li><a href="#">Sale</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-6">
+					<div class="footer__widget">
+						<h6>Shopping</h6>
+						<ul>
+							<li><a href="#">Contact Us</a></li>
+							<li><a href="#">Payment Methods</a></li>
+							<li><a href="#">Delivary</a></li>
+							<li><a href="#">Return & Exchanges</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+					<div class="footer__widget">
+						<h6>NewLetter</h6>
+						<div class="footer__newslatter">
+							<p>Be the first to know about new arrivals, look books, sales
+								& promos!</p>
+							<form action="#">
+								<input type="text" placeholder="Your email">
+								<button type="submit">
+									<span class="icon_mail_alt"></span>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="footer__copyright__text">
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						<p>
+							Copyright ©
+							<script>
+								document.write(new Date().getFullYear());
+							</script>
+							2020 All rights reserved | This template is made with <i
+								class="fa fa-heart-o" aria-hidden="true"></i> by <a
+								href="https://colorlib.com" target="_blank">Colorlib</a>
+						</p>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer Section End -->
+
+	<!-- Search Begin -->
+	<div class="search-model">
+		<div class="h-100 d-flex align-items-center justify-content-center">
+			<div class="search-close-switch">+</div>
+			<form th:action="@{/search}" method="POST" class="search-model-form">
+				<input name="search-input" type="text" id="search-input"
+					placeholder="Search here.....">
+			</form>
+		</div>
+	</div>
+	<!-- Search End -->
+	<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.nicescroll.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/mixitup.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>

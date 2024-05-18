@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Male_Fashion Template">
+<meta name="keywords" content="Male_Fashion, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Male-Fashion</title>
+<link rel="icon" href="/img/logo-3.png">
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+	rel="stylesheet">
+
+<!-- Css Styles -->
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+<link rel="stylesheet" href="css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Offcanvas Menu Begin -->
+	<div class="offcanvas-menu-overlay"></div>
+	<div class="offcanvas-menu-wrapper">
+		<div class="offcanvas__option">
+			<div class="offcanvas__links">
+				<a th:if="${session.acc == null}" th:href="@{/signin}">Sign in</a> <a
+					th:if="${session.acc != null}" th:text="${session.acc.user_Name}"
+					style="color: white;"></a> <a th:if="${session.acc != null}"
+					th:href="@{/signout}">Sign out</a><a href="#">FAQs</a>
+			</div>
+			<div class="offcanvas__top__hover">
+				<span>VND<i class="arrow_carrot-down"></i></span>
+				<ul>
+					<li>VND</li>
+					<li>EUR</li>
+					<li>USD</li>
+				</ul>
+			</div>
+		</div>
+		<div class="offcanvas__nav__option">
+			<a href="#" class="search-switch"><img src="img/icon/search.png"
+				alt=""></a> <a href="#"><img src="img/icon/heart.png" alt=""></a>
+			<a th:href="@{/cart}"><img src="img/icon/cart.png" alt="">
+				<span th:text="${session.countCart}"></span></a>
+		</div>
+		<div id="mobile-menu-wrap"></div>
+		<div class="offcanvas__text">
+			<p>Free shipping, 30-day return or refund guarantee.</p>
+		</div>
+	</div>
+	<!-- Offcanvas Menu End -->
+
+	<!-- Header Section Begin -->
+	<header class="header">
+		<div class="header__top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-7">
+						<div class="header__top__left">
+							<p>Free shipping, 30-day return or refund guarantee.</p>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-5">
+						<div class="header__top__right">
+							<div class="header__top__links">
+								<a th:if="${session.acc == null}" th:href="@{/signin}">Sign
+									in</a> <a th:if="${session.acc != null}"
+									th:text="${session.acc.user_Name}" style="color: white;"></a> <a
+									th:if="${session.acc != null}" th:href="@{/signout}">Sign
+									out</a><a href="#">FAQs</a>
+							</div>
+							<div class="header__top__hover">
+								<span>Usd <i class="arrow_carrot-down"></i></span>
+								<ul>
+									<li>USD</li>
+									<li>EUR</li>
+									<li>USD</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-3">
+					<div class="header__logo" style="margin-top: -20px;">
+						<a th:href="@{/home}"><img src="img/logo1.png" alt=""></a>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<nav class="header__menu mobile-menu">
+						<ul>
+							<li><a th:href="@{/home}">Home</a></li>
+							<li><a th:href="@{/shop}">Shop</a></li>
+							<li class="active"><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                	<li><a th:href="@{/cart}">Shopping Cart</a></li>
+                                	<li><a th:href="@{/myprofile}">My Profile</a></li>
+                                	<li><a th:href="@{/myhistory}">My History</a></li>
+                                    <li><a th:href="@{/about}">About Us</a></li>
+                                </ul>
+                            </li>
+							<li><a th:href="@{/blog}">Blog</a></li>
+							<li><a th:href="@{/contact}">Contacts</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-lg-3 col-md-3">
+					<div class="header__nav__option">
+						<a href="#" class="search-switch"><img
+							src="img/icon/search.png" alt=""></a> <a href="#"><img
+							src="img/icon/heart.png" alt=""></a> <a th:href="@{/cart}"><img
+							src="img/icon/cart.png" alt=""> <span
+							th:text="${session.countCart}"></span></a>
+					</div>
+				</div>
+			</div>
+			<div class="canvas__open">
+				<i class="fa fa-bars"></i>
+			</div>
+		</div>
+	</header>
+	<!-- Header Section End -->
+
+	<!-- Breadcrumb Section Begin -->
+	<section class="breadcrumb-option">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="breadcrumb__text">
+						<div class="breadcrumb__links">
+							<a th:href="@{/home}">Home</a> <span>News</span> <span> > ARISTINO FALL-WINTER 2024</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Breadcrumb Section End -->
+
+	<!-- About Section Begin -->
+	<div style="padding-left: 170px;">
+		<h2>ARISTINO FALL-WINTER 2024 | SOARING TO SUCCESS</h2>
+		<p>20/12/2023</p>
+	</div>
+	
+	<section class="about spad">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-lg-12">
+					
+					<div class="about__pic">
+						<img src="img/banner/BannerHome2.jpg" alt="">
+					</div>
+				</div>
+			</div>
+			
+			<h4><b>Doanh nhân - người tiên phong cho sứ mệnh khơi dậy sự thành đạt, tinh thần sáng tạo, đổi mới và phát triển của xã hội.</b></h4>
+			<br>
+			<p style="font-size: 16px;">Doanh nhân - người tiên phong cho sứ mệnh khơi dậy sự thành đạt, tinh thần sáng tạo, đổi mới và phát triển của xã hội. Đó cũng chính là nguồn cảm hứng cho BST Aristino Thu Đông 2023: Soaring to Success - Vươn cao Thành công.</p>
+			<p style="font-size: 16px;">Không chỉ gợi nhắc về phong cách của những quý ông thành đạt, thông qua các thiết kế suit, blazer, sơ mi, áo jacket hay trang phục golf đương đại, Aristino khơi mở câu chuyện về hành trình chinh phục vinh quang của người doanh nhân.</p>
+
+	</section>
+<!-- About Section End -->
+
+<!-- Slide Show -->
+<div class="slider" x-data="{start: true, end: false}">
+  <div class="slider__content" x-ref="slider" x-on:scroll.debounce="$refs.slider.scrollLeft == 0 ? start = true : start = false; Math.abs(($refs.slider.scrollWidth - $refs.slider.offsetWidth) - $refs.slider.scrollLeft) < 5 ? end = true : end = false;">
+	    <div class="slider__item">
+	      <img class="slider__image" src="img/blog/blog12.jpg" alt="Image">
+	      <div class="slider__info">     
+	      </div>
+	    </div>
+	    <div class="slider__item">
+	      	<img class="slider__image" src="img/blog/blog13.jpg" alt="Image">
+	      	<div class="slider__info">    
+	      	</div>
+	    </div>
+	    <div class="slider__item">
+	      	<img class="slider__image" src="img/blog/blog14.jpg" alt="Image">
+	      	<div class="slider__info">      
+	      	</div>
+	    </div>
+	    <div class="slider__item">
+	      	<img class="slider__image" src="img/blog/blog15.jpg" alt="Image">
+	      	<div class="slider__info">      
+	      	</div>
+	    </div>
+	    <div class="slider__item">
+	      	<img class="slider__image" src="img/blog/blog16.jpg" alt="Image">
+	      	<div class="slider__info">       
+	      	</div>
+	    </div>
+     </div>
+    </div>
+</div>
+<br>
+<i style="padding-left: 650px;">Một số hình ảnh trong festival</i>
+<br>
+<br>
+<br>
+<br>
+<!-- End Slide Show -->	
+
+	<!-- Testimonial Section Begin -->
+	<section class="testimonial">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6 p-0">
+					<div class="testimonial__text">
+						<span class="icon_quotations"></span>
+						<p>SOARING TO SUCCESS
+							𝐀𝐑𝐈𝐒𝐓𝐈𝐍𝐎 𝐅𝐀𝐋𝐋-𝐖𝐈𝐍𝐓𝐄𝐑 𝟐𝟎𝟐𝟑 | SOARING TO SUCCESS - VƯƠN CAO THÀNH CÔNG Không chỉ gợi nhắc về phong cách của những quý ông thành đạt, thông qua các thiết kế suit, blazer, sơ mi, áo jacket hay trang phục golf đương đại, Aristino khơi mở câu chuyện về hành trình chinh phục vinh quang của người doanh nhân.</p>
+						<div class="testimonial__author">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 p-0">
+					<div class="testimonial__pic set-bg"
+						data-setbg="img/blog/blog23.jpg"></div>
+				</div>
+			</div>
+			<br>
+			<br>
+			<h3 style="text-align: center;">SOARING TO SUCCESS</h3>
+			<br>
+			<p style="text-align: center;font-size: 16px;">𝐀𝐑𝐈𝐒𝐓𝐈𝐍𝐎 𝐅𝐀𝐋𝐋-𝐖𝐈𝐍𝐓𝐄𝐑 𝟐𝟎𝟐𝟑 | SOARING TO SUCCESS - VƯƠN CAO THÀNH CÔNG Không chỉ gợi nhắc về phong cách của những quý ông thành đạt, thông qua các thiết kế</p>
+			<p style="text-align: center;font-size: 16px;">suit, blazer, sơ mi, áo jacket hay trang phục golf đương đại, Aristino khơi mở câu chuyện về hành trình chinh phục vinh quang của người doanh nhân. Lối thiết kế tinh giản,</p>
+			<p style="text-align: center;font-size: 16px;">màu sắc nam tính, đường nét mạnh mẽ, cứng cáp cùng chất liệu cao cấp như cotton, wool, hay polyester biến tính được kết hợp hoàn hảo, đem đến những thiết kế đậm chất</p>
+			<p style="text-align: center;font-size: 16px;">thời trang, sang trọng và lịch lãm. Khám phá BST ngay!</p>
+			<br>
+			<br>
+		</div>
+	</section>
+	<!-- Testimonial Section End -->
+
+	
+	<!-- Footer Section Begin -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="footer__about">
+						<div class="footer__logo">
+							<a href="#"><img src="img/footer-logo.png" alt=""></a>
+						</div>
+						<p>The customer is at the heart of our unique business model,
+							which includes design.</p>
+						<a href="#"><img src="img/payment.png" alt=""></a>
+					</div>
+				</div>
+				<div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+					<div class="footer__widget">
+						<h6>Shopping</h6>
+						<ul>
+							<li><a href="#">Clothing Store</a></li>
+							<li><a href="#">Trending Shoes</a></li>
+							<li><a href="#">Accessories</a></li>
+							<li><a href="#">Sale</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-6">
+					<div class="footer__widget">
+						<h6>Shopping</h6>
+						<ul>
+							<li><a href="#">Contact Us</a></li>
+							<li><a href="#">Payment Methods</a></li>
+							<li><a href="#">Delivary</a></li>
+							<li><a href="#">Return & Exchanges</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+					<div class="footer__widget">
+						<h6>NewLetter</h6>
+						<div class="footer__newslatter">
+							<p>Be the first to know about new arrivals, look books, sales
+								& promos!</p>
+							<form action="#">
+								<input type="text" placeholder="Your email">
+								<button type="submit">
+									<span class="icon_mail_alt"></span>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="footer__copyright__text">
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						<p>
+							Copyright ©
+							<script>
+								document.write(new Date().getFullYear());
+							</script>
+							2020 All rights reserved | This template is made with <i
+								class="fa fa-heart-o" aria-hidden="true"></i> by <a
+								href="https://colorlib.com" target="_blank">Colorlib</a>
+						</p>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer Section End -->
+
+	<!-- Search Begin -->
+	<div class="search-model">
+		<div class="h-100 d-flex align-items-center justify-content-center">
+			<div class="search-close-switch">+</div>
+			<form th:action="@{/search}" method="POST" class="search-model-form">
+				<input name="search-input" type="text" id="search-input"
+					placeholder="Search here.....">
+			</form>
+		</div>
+	</div>
+	<!-- Search End -->
+	<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.nicescroll.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/mixitup.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
